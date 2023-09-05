@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/72215895a8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dynamicSearch.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/headerFooter.css') }}">
+  <title>Search</title>
+</head>
+
+<body>
+{% include 'header.html' %}
+<main>
+  <div class="wrapper">
+    <div class="search-input">
+      <a href="" target="_blank" hidden></a>
+      <input type="text" placeholder="Type to search..">
+      <div class="autocom-box">
+      </div>
+      <div class="icon"><i class="fas fa-search"></i></div>
+    </div>
+  </div>
+  <div class="result">
+    <div class="resultmessage">
+      <p>Results</p>
+    </div>
+    <div class="productresult-container">
+      {% set j=0 %}
+      {% for i in result %}
+      {% set path="images/productimg/"+i[1]+".jpg" %}
+      <!-- enter data here -->
+      <form action="/product/{{user}}/{{name}}/{{result}}">
+        <div class="productresult">
+          <div class="productimage">
+            <img src="{{url_for('static', filename=path)}}">
+          </div>
+          <button type="submit">
+            <div class="productinfo">
+              Product: <h3>{{i[1]}}</h3>
+              Category: {{i[4]}}
+              <p>Price: &#x20b9; {{i[3]}}/kg</p>
+              <p>{{i[8]}}</p>
+            </div>
+          </button>
+        </div>
+      </a>
+      {% set j=j+1 %}
+      {% endfor %}
+    </div>
+  </div>
+</main>
+
+{% include 'footer.html' %}
+</body>
+
+</html>

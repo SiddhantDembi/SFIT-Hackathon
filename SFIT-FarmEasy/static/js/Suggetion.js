@@ -1,0 +1,23 @@
+let suggestions = [
+    "Tomato",
+    "Potato", 
+    "Onion", 
+    "Sweet potato", 
+    "Black Paper", 
+    "Cinnamon",
+    "Capsicum",
+    "Carrot",
+    "Apple", 
+    "Orange", 
+    "Grapes",
+    "Watermelon",
+    "Milk",
+    "Cheese",
+    "Panner",
+    "Curd",
+    "Chilli powder",
+    "Turmeric",
+    "Flour" ,
+    "Rice", 
+    "Pulses"
+];

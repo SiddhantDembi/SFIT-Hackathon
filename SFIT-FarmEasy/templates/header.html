@@ -1,0 +1,26 @@
+<header>
+  <nav>
+    <div class="logo">
+      <a href=""><img src="{{ url_for('static', filename='images/logo.svg') }}" alt="logo"></a>
+      <h2><span style="color: rgb(255, 255, 255, 0.85);">
+          Farm
+        </span>
+        <span style="color: rgb(0, 0, 0, 0.85);">
+          Easy
+        </span>
+      </h2>
+    </div>
+    <div class="link-container">
+      <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#foot">CONTACT</a></li>
+        {% if user==NULL %}
+        <li><a href="/login">LOGIN</a></li>
+        {% else %} 
+        <li><a href="/dashboardpage/{{user}}/{{name}}" method="post">Hey {{name}}</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+</header>

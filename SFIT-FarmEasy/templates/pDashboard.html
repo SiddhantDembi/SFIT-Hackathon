@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/headerFooter.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/pDashboard.css') }}">
+  <script src="{{url_for('static', filename='js/dashboard.js')}}" defer></script>
+  <title>Dashboard</title>
+</head>
+
+<body style="background-color: var(--website-background);">
+{% include 'header.html' %}
+
+  <main>
+    <div class="left-nav">
+      <button class="nav-btn" onclick="showPanel(0)">Active Orders</button>
+      <button class="nav-btn" onclick="showPanel(1)">Orders History</button>
+    </div>
+    <div class="nav-content">
+      <div class="content-container">
+        <div class="container-heading">
+          <h2>Your Current Orders</h2>
+        </div>
+        <div class="inner-container">
+          <!-- add content here -->
+{% for i in finalproducts%}
+  {% if i[3]==1 %}
+  {% set path="images/productimg/"+i[0]+".jpg" %}
+          <div class="contents">
+            <div class="content-img">
+              <img src='{{ url_for("static", filename=path) }}' alt="product">
+            </div>
+            <div class="productinfo">
+              <div class="productname">
+                <h3>{{i[0]}}</h4>
+              </div>
+              <div class="productpricing">
+                <p>Price: &#x20b9; {{i[1]}}/kg</p>
+                <p>Quantity:{{i[2]}}kg</p>
+              </div>
+              <p class="totalprice">Product Cost: &#x20b9; {{i[1]*i[2]}}</p>
+            </div>
+            <form action="/activeorder/{{user}}/{{name}}/{{farmer}}/{{i[3]}}" method="post">
+              <button class="accept-btn">Accept</button>
+            </form>
+          </div>
+          <!-- end content -->
+  {% endif %}
+{% endfor %}
+        </div>
+      </div>
+      
+      <div class="content-container">
+        <div class="container-heading">
+          <h2>Previous Orders</h2>
+        </div>
+        <div class="inner-container">
+          <!-- add content here -->
+{% for i in finalproducts%}
+  {% if i[3]==0 %}
+          <div class="contents">
+            <div class="content-img"><img src='{{ url_for("static", filename=path) }}' alt="product"></div>
+            <div class="productinfo">
+              <div class="productname">
+                <h3>{{i[0]}}</h4>
+              </div>
+              <div class="productpricing">
+                <p>Price: &#x20b9; {{i[1]}}/kg</p>
+                <p>Quantity:{{i[2]}}kg</p>
+              </div>
+              <p class="totalprice">Product Cost: &#x20b9; {{i[1]*i[2]}}</p>
+            </div>
+          </div>
+          <!-- end content -->
+  {% endif %}
+{% endfor %}
+        </div>
+      </div>
+
+    </div>
+  </main>
+</body>
+
+</html>
