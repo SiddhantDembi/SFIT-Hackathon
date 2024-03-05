@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login & Sign up</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css')}}">
+</head>
+
+<body>
+  <main>
+    <div class="box">
+      <div class="inner-box">
+        <div class="forms-wrap">
+          <form action="/login_verify" method="post" autocomplete="off" class="sign-in-form">
+            <div class="logo">
+              <img src="../static/images/logo.svg" alt="easyclass" />
+              <h4><span style="color: rgb(100, 185, 70);">Farm</span>Easy</h4>
+            </div>
+
+            <div class="heading">
+              <h2>Welcome</h2>
+              <h6>Not registered yet?</h6>
+              <a href="#" class="toggle">Sign up</a>
+            </div>
+
+            <div class="actual-form">
+              <div class="input-wrap">
+                <input type="text" minlength="4" name="email" class="input-field" autocomplete="off" required />
+                <label>Email</label>
+              </div>
+
+              <div class="input-wrap">
+                <input type="password" minlength="4" name="password" class="input-field" autocomplete="off" required />
+                <label>Password</label>
+              </div>
+
+              <input type="submit" value="Sign In" class="sign-btn" />
+
+              <p class="text">
+                Forgot your password or you login details?
+                <a href="#">Get help</a> signing in
+              </p>
+            </div>
+          </form>
+
+          <form action="/register" method="post" autocomplete="off" class="sign-up-form">
+            <div class="logo">
+              <img src="../static/images/logo.svg" alt="easyclass" />
+              <h4><span style="color: rgb(100, 185, 70);">Farm</span>Easy</h4>
+            </div>
+
+            <div class="heading">
+              <h2>Get Started</h2>
+              <h6>Already have an account?</h6>
+              <a href="#" class="toggle">Login</a>
+            </div>
+
+            <div class="actual-form">
+              <div class="input-wrap">
+                <input type="text" minlength="4" name="rusername" class="input-field" autocomplete="off" required />
+                <label>Name</label>
+              </div>
+
+              <div class="input-wrap">
+                <input type="email" name="remail" class="input-field" autocomplete="off" required />
+                <label>Email</label>
+              </div>
+
+              <div class="input-wrap">
+                <input type="password" minlength="4" name="rpassword" class="input-field" autocomplete="off" required />
+                <label>Password</label>
+              </div>
+
+              <input type="submit" value="Sign Up" class="sign-btn" />
+
+              <p class="text">
+                By signing up, I agree to the
+                <a href="#">Terms of Services</a> and
+                <a href="#">Privacy Policy</a>
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <div class="carousel">
+          <div class="images-wrapper">
+            <img src="../static/images/login3.svg" class="image img-1 show" alt="" />
+            <img src="../static/images/login2.svg" class="image img-2" alt="" />
+            <img src="../static/images/login1.svg" class="image img-3" alt="" />
+          </div>
+
+          <div class="text-slider">
+            <div class="text-wrap">
+              <div class="text-group">
+                <h2>Fresh from the farm to your home</h2>
+                <h2>Support your local farmers</h2>
+                <h2>Growing for a greener future</h2>
+              </div>
+            </div>
+          
+
+            <div class="bullets">
+              <span class="active" data-value="1"></span>
+              <span data-value="2"></span>
+              <span data-value="3"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="../static/js/login.js"></script>
+</body>
+
+</html>
